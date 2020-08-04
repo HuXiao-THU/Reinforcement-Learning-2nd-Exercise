@@ -18,7 +18,7 @@ class GambleGame(object):
         """*********************************
         here to adjust the parameters freely
         *********************************"""
-        self.pH = 0.55
+        self.pH = 0.4
         self.theta = 1e-17      # the smallest precise float number
         self.mode = "smallest"  # the way to choose the best action when the values are the same
         self.save_figure = False    # switch for if save the figures
