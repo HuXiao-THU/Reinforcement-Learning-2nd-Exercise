@@ -1,3 +1,5 @@
+# This model runs very slow, each iteration may need up to 30 minutes
+
 import numpy as np
 import math
 import matplotlib.pyplot as plt
@@ -12,16 +14,19 @@ class CarRental(object):
         self.values = np.zeros((21,21), dtype=np.int)
         self.policy = np.zeros((21,21), dtype=np.int)
         self.stateIter = [(num1, num2) for num1 in range(0,21) for num2 in range(0,21)]
-
-        self.theta = 10
-        self.gamma = 0.9
-        self.max_rental = 10
         self.modelSaveFile = './model_save/4-7/model.pkl'
 
         if os.path.exists(self.modelSaveFile):
             with open(self.modelSaveFile, 'rb') as f:
                 self.values = pickle.load(f)
                 self.policy = pickle.load(f)
+        
+        """*********************************
+        here to adjust the parameters freely
+        *********************************"""
+        self.theta = 10
+        self.gamma = 0.9
+        self.max_rental = 10
 
     def policyEvaluation(self):
         count = 0
